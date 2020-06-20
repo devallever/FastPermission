@@ -1,0 +1,3 @@
+include ':fastpermission'
+include ':app'
+rootProject.name = "FastPermission"
