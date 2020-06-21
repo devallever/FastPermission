@@ -13,7 +13,7 @@ class PermissionFragment : Fragment() {
 
     private var listener: PermissionListener? = null
 
-    fun request(vararg permissions: String, listener: PermissionListener?) {
+    fun request(listener: PermissionListener?, vararg permissions: String) {
         this.listener = listener
         val denyList = mutableListOf<String>()
         permissions.map {

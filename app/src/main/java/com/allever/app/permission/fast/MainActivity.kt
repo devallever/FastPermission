@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         FastPermission.request(
             this,
-            Manifest.permission.CAMERA,
-            Manifest.permission.READ_PHONE_STATE,
-            listener = object : PermissionListener {
+            object : PermissionListener {
                 override fun onGrand() {
 
                 }
@@ -27,7 +25,9 @@ class MainActivity : AppCompatActivity() {
                 override fun onAlwaysDeny() {
 
                 }
-            }
+            },
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_PHONE_STATE
         )
     }
 }

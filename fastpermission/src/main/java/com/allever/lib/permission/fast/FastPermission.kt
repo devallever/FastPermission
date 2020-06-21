@@ -8,8 +8,8 @@ object FastPermission {
 
     fun request(
         activity: FragmentActivity,
-        vararg permissions: String,
-        listener: PermissionListener?
+        listener: PermissionListener?,
+        vararg permissions: String
     ) {
         val fragmentManager = activity.supportFragmentManager
         val fragment = fragmentManager.findFragmentByTag(PERMISSION_FRAGMENT_TAG)
@@ -20,7 +20,7 @@ object FastPermission {
         } else {
             fragment as PermissionFragment
         }
-        permissionFragment.request(*permissions, listener = listener)
+        permissionFragment.request(listener, *permissions)
     }
 
 }
