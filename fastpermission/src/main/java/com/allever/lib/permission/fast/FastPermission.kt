@@ -38,8 +38,14 @@ object FastPermission {
         return true
     }
 
-    fun hasAlwaysDeny(activity: Activity, permission: String): Boolean {
-        return !shouldShowRequestPermissionRationale(activity, permission)
+    fun hasAlwaysDeny(activity: Activity, vararg permissions: String): Boolean {
+        for (permission in permissions) {
+            val result = !shouldShowRequestPermissionRationale(activity, permission)
+            if (result) {
+                return true
+            }
+        }
+        return false
     }
 
 }

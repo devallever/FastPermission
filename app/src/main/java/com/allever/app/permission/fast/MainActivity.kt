@@ -15,25 +15,30 @@ class MainActivity : AppCompatActivity() {
             this,
             object : PermissionListener {
                 override fun onGrand() {
-
+                    //全部授权
                 }
 
                 override fun onDeny() {
-
+                    //部分拒绝
                 }
 
                 override fun onAlwaysDeny() {
-
+                    //不再提示
                 }
             },
             Manifest.permission.CAMERA,
             Manifest.permission.READ_PHONE_STATE
         )
 
-        FastPermission.hasPermissions(
+        val hasPermission = FastPermission.hasPermissions(
             this,
             Manifest.permission.CAMERA,
             Manifest.permission.READ_PHONE_STATE
-        );
+        )
+
+        val alwaysDeny = FastPermission.hasAlwaysDeny(
+            this, Manifest.permission.CAMERA,
+            Manifest.permission.READ_PHONE_STATE
+        )
     }
 }
