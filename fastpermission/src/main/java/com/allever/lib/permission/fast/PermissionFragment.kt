@@ -17,7 +17,7 @@ class PermissionFragment : Fragment() {
         this.listener = listener
         val denyList = mutableListOf<String>()
         permissions.map {
-            if (!hasPermissions(it)) {
+            if (!FastPermission.hasPermissions(activity!!, it)) {
                 denyList.add(it)
             }
         }
@@ -27,20 +27,6 @@ class PermissionFragment : Fragment() {
         } else {
             requestPermissions(denyList.toTypedArray(), REQUEST_CODE_PERMISSION)
         }
-    }
-
-    fun hasPermissions(vararg permissions: String): Boolean {
-        for (permission in permissions) {
-            val result = ContextCompat.checkSelfPermission(activity!!, permission)
-            if (result == PackageManager.PERMISSION_DENIED) {
-                return false
-            }
-        }
-        return true
-    }
-
-    fun hasAlwaysDeny(permission: String): Boolean {
-        return !shouldShowRequestPermissionRationale(permission)
     }
 
     override fun onRequestPermissionsResult(

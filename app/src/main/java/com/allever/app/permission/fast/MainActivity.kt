@@ -29,5 +29,11 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.CAMERA,
             Manifest.permission.READ_PHONE_STATE
         )
+
+        FastPermission.hasPermissions(
+            this,
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_PHONE_STATE
+        );
     }
 }
