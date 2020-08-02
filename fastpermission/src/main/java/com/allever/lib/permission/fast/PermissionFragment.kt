@@ -2,7 +2,6 @@ package com.allever.lib.permission.fast
 
 import android.content.pm.PackageManager
 import android.util.Log
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 class PermissionFragment : Fragment() {
@@ -23,9 +22,11 @@ class PermissionFragment : Fragment() {
         }
         if (denyList.isEmpty()) {
             log("全部授权")
-            listener?.onGrand()
+            listener?.onGranted(permissions.toMutableList())
         } else {
-            requestPermissions(denyList.toTypedArray(), REQUEST_CODE_PERMISSION)
+            requestPermissions(denyList.toTypedArray(),
+                REQUEST_CODE_PERMISSION
+            )
         }
     }
 
@@ -52,15 +53,15 @@ class PermissionFragment : Fragment() {
         if (denyPermissions.isEmpty()) {
             //全部授权
             log("全部授权")
-            listener?.onGrand()
+            listener?.onGranted(permissions.toMutableList())
         } else {
             //拒绝
             if (alwaysDenyPermissions.isNotEmpty()) {
                 log("总是拒绝权限，不再弹出")
-                listener?.onAlwaysDeny()
+                listener?.alwaysDenied(alwaysDenyPermissions)
             } else {
                 log("拒绝权限")
-                listener?.onDeny()
+                listener?.onDenied(denyPermissions)
             }
         }
 
