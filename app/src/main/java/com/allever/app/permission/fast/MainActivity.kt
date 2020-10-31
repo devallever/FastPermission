@@ -14,17 +14,10 @@ class MainActivity : AppCompatActivity() {
         FastPermission.request(
             this,
             object : PermissionListener {
-                override fun onGrand() {
-                    //全部授权
+                override fun onGranted(grantedList: MutableList<String>) {
+                    TODO("Not yet implemented")
                 }
 
-                override fun onDeny() {
-                    //部分拒绝
-                }
-
-                override fun onAlwaysDeny() {
-                    //不再提示
-                }
             },
             Manifest.permission.CAMERA,
             Manifest.permission.READ_PHONE_STATE
@@ -36,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.READ_PHONE_STATE
         )
 
-        val alwaysDeny = FastPermission.hasAlwaysDeny(
+        val alwaysDeny = FastPermission.hasAlwaysDeniedPermission(
             this, Manifest.permission.CAMERA,
             Manifest.permission.READ_PHONE_STATE
         )

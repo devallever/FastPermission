@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 buildscript {
     repositories {
@@ -13,14 +13,14 @@ buildscript {
     }
 }
 
-publish {
-    userOrg = 'devallever'
-    groupId = 'com.allever.lib'
-    artifactId = 'fast-permission'
-    publishVersion = '0.1.0'
-    desc = 'Make Android runtime permission request easy'
-    website = 'https://github.com/devallever/FastPermission'
-}
+//publish {
+//    userOrg = 'devallever'
+//    groupId = 'com.allever.lib'
+//    artifactId = 'fast-permission'
+//    publishVersion = '0.1.0'
+//    desc = 'Make Android runtime permission request easy'
+//    website = 'https://github.com/devallever/FastPermission'
+//}
 
 
 android {
